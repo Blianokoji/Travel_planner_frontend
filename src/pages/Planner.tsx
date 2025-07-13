@@ -69,9 +69,9 @@ const Planner = () => {
             };
 
             const res = await api.post<PlanResponse>("/generate_plan", data, { withCredentials: true });
-            console.log("Plan response:", res.data);
-            console.log("Plan type:", typeof res.data);
-            console.log("Plan content:", res.data);
+            // console.log("Plan response:", res.data);
+            // console.log("Plan type:", typeof res.data);
+            // console.log("Plan content:", res.data);
 
             if (res.status === 200) {
                 const parsedPlan = res.data;

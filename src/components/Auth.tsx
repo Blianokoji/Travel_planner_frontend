@@ -12,7 +12,7 @@ export const Login = () => {
     const handleLogin = async () => {
         try {
             const res = await api.post("auth/login", { username, password }, { withCredentials: true });
-            console.log("Login response:", res.data);
+            // console.log("Login response:", res.data);
             if (res.status === 200) {
                 setState("logged_in");
             }
