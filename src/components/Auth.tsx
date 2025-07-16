@@ -69,6 +69,7 @@ export const Register = () => {
     const handleRegister = async () => {
         if (password !== confirmPassword) {
             setError("Passwords do not match");
+            setMessage("");
             return;
         }
 
@@ -77,6 +78,7 @@ export const Register = () => {
             console.log("Register response:", res.data);
             if (res.status === 201) {
                 setMessage(res.data.message); // Show "Registration successful"
+                setError("");
             }
 
         } catch (err) {
