@@ -65,7 +65,7 @@ export const Register = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
-
+    const [message, setMessage] = useState("");
     const handleRegister = async () => {
         if (password !== confirmPassword) {
             setError("Passwords do not match");
@@ -76,8 +76,9 @@ export const Register = () => {
             const res = await api.post("auth/register", { username, email, password }, { withCredentials: true });
             console.log("Register response:", res.data);
             if (res.status === 201) {
-                alert(res.data.message); // Show "Registration successful"
+                setMessage(res.data.message); // Show "Registration successful"
             }
+
         } catch (err) {
             console.error("Registration error:", err);
             alert("Registration failed");
@@ -123,6 +124,11 @@ export const Register = () => {
                     className="border-b border-gray-300 p-1 w-full px-4"
                 />
                 <div className="text-red-500 text-sm">{error}</div>
+                if(message === "Registration successful"){
+                    <div className="text-green-600 text-sm">{message}</div>
+                }else{
+                    <div className="text-red-500 text-sm">{message}</div>
+                }
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-40">Register</button>
                 <div className="text-sm text-black mt-2">
                     Already have an account?{" "}
