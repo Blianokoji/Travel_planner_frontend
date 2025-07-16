@@ -124,10 +124,12 @@ export const Register = () => {
                     className="border-b border-gray-300 p-1 w-full px-4"
                 />
                 <div className="text-red-500 text-sm">{error}</div>
-                if(message === "Registration successful"){
+                {(message === "Registration successful")?(
                     <div className="text-green-600 text-sm">{message}</div>
-                }else{
+                ):(
+
                     <div className="text-red-500 text-sm">{message}</div>
+                )
                 }
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-40">Register</button>
                 <div className="text-sm text-black mt-2">
